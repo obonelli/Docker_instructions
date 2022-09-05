@@ -64,19 +64,19 @@ docker ps -a
 ```
 
 ### Create
-**Note:** Using this example we can create a mongo image
+**Note:** using this example we can create a mongo image
 ```bash
 docker container create mongo
 ```
-**Note:**  Command for create a docker with a custom name
+**Note:**  command for create a docker with a custom name
 ```bash
 docker create --name monguito mongo
 ```
-**Note:** Creating new docker with custom maping port and name
+**Note:** creating new docker with custom maping port and name
 ```bash
 docker create -p27017:27017 --name monguito mongo
 ```
-**Note:** Creating new docker with custom maping port and name before run this command u will need the created network name
+**Note:** creating new docker with custom maping port and name before run this command u will need the created network name
 ```bash
 docker create -p27017:27017 --name monguito --network mired -e MONGO_INITDB_ROOT_USERNAME=nico -e MONGO_INITDB_ROOT_PASSWORD=password mongo
 ```
@@ -87,7 +87,7 @@ docker create -p27017:27017 --name monguito --network mired -e MONGO_INITDB_ROOT
 docker start e268c1ce8cd91aba46880a607dc35838b37a981e9fc442126cf747d7b8362d33
 ```
 ### Run
-**Note:** Command for create , download image if needed and start the docker
+**Note:** command for create , download image if needed and start the docker
 ```bash
 docker run --name monguito -p27017:27017 -d mongo
 ```
@@ -99,17 +99,17 @@ docker stop e268c1ce8cd9
 ```
 
 ### Delete
-**Note:** Command for delete docker with the Names -example
+**Note:** command for delete docker with the Names -example
 ```bash
 docker rm awesome_gates
 ```
 
 ### Logs
-**Note:** Command for check all logs from the selected docker
+**Note:** command for check all logs from the selected docker
 ```bash
 docker logs monguito
 ```
-**Note:** Command for listen all incoming logs from the selected docker
+**Note:** command for listen all incoming logs from the selected docker
 ```bash
 docker logs --follow monguitos
 ```
@@ -128,13 +128,13 @@ docker network rm mired
 ## Docker Compose
 
 ### Create
-**Note:** Command for create and start all dockers
+**Note:** command for create and start all dockers
 ```bash
 docker compose up
 ```
 
 ### Delete
-**Note:** Command for stop and clean all docker compose dockers
+**Note:** command for stop and clean all docker compose dockers
 ```bash
 docker compose down
 ```
