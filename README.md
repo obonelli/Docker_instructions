@@ -6,16 +6,18 @@
     - [List](#images-list)
     - [Download](#images-download)
     - [Delete](#images-delete)
-- [Dockers commands](#typo3-setup)
-    - [List](#extension)
-    - [Create](#database)
-    - [Start](#database)
-    - [Stop](#database)
-    - [Delete](#database)
-    - [Network](#database)
-- [Docker Compose](#page-setup)
-    - [Create](#upload-the-page-tree-file)
-    - [Delete](#go-to-the-import-view)
+- [Dockers commands](#dockers-commands)
+    - [List](#dockers-list)
+    - [Create](#dockers-create)
+    - [Start](#dockers-start)
+    - [Run](#dockers-run)
+    - [Stop](#dockers-stop)
+    - [Delete](#dockers-delete)
+    - [Logs](#dockers-logs)
+    - [Network](#dockers-network)
+- [Docker Compose](#docker-compose)
+    - [Create](#docker-compose-create)
+    - [Delete](#docker-compose-delete)
 
 ## Images Commands
 Listed below are all commands related to **docker images**.
@@ -48,46 +50,91 @@ docker pull --platform linux/x86_64 node
 docker image rm node:latest
 ```
 
-// Command for create mongo container for use this command first we need the image
-docker container create mongo
+## Dockers commands
+Listed below are all commands related to **docker images**.
 
-// After created the new container using this command with the example that it will give us for start
-docker start e268c1ce8cd91aba46880a607dc35838b37a981e9fc442126cf747d7b8362d33
-
-// Command for stop selected Container Id
-docker stop e268c1ce8cd9
-
-// Command for check all currents dockers
+### List
+**Note:** command to check active dockers
+```bash
+docker ps
+```
+**Note:** command to check all dockers
+```bash
 docker ps -a
+```
 
-// Command for delete docker with the Names -example
-docker rm awesome_gates
-
-// Command for create a docker with a custom name
+### Create
+**Note:** Using this example we can create a mongo image
+```bash
+docker container create mongo
+```
+**Note:**  Command for create a docker with a custom name
+```bash
 docker create --name monguito mongo
-
-// Creating new docker with custom maping port and name
+```
+**Note:** Creating new docker with custom maping port and name
+```bash
 docker create -p27017:27017 --name monguito mongo
-
-// Command for check all logs from the selected docker
-docker logs monguito
-
-// Command for listen all incoming logs from the selected docker
-docker logs --follow monguitos
-
-// Command for create , download image if needed and start the docker
-docker run --name monguito -p27017:27017 -d mongo
-
-// Commands for check and create networks
-docker network ls
-docker network create mired
-docker network rm mired
-
+```
+**Note:** Creating new docker with custom maping port and name before run this command u will need the created network name
+```bash
 docker create -p27017:27017 --name monguito --network mired -e MONGO_INITDB_ROOT_USERNAME=nico -e MONGO_INITDB_ROOT_PASSWORD=password mongo
+```
 
-// Command for create and start all dockers
+### Start
+**Note:** with this example command allows you to start the docker from your ID
+```bash
+docker start e268c1ce8cd91aba46880a607dc35838b37a981e9fc442126cf747d7b8362d33
+```
+### Run
+**Note:** Command for create , download image if needed and start the docker
+```bash
+docker run --name monguito -p27017:27017 -d mongo
+```
+
+### Stop
+**Note:** command for stop selected Container Id
+```bash
+docker stop e268c1ce8cd9
+```
+
+### Delete
+**Note:** Command for delete docker with the Names -example
+```bash
+docker rm awesome_gates
+```
+
+### Logs
+**Note:** Command for check all logs from the selected docker
+```bash
+docker logs monguito
+```
+**Note:** Command for listen all incoming logs from the selected docker
+```bash
+docker logs --follow monguitos
+```
+
+### Network
+```bash
+docker network ls
+```
+```bash
+docker network create mired
+```
+```bash
+docker network rm mired
+```
+
+## Docker Compose
+
+### Create
+**Note:** Command for create and start all dockers
+```bash
 docker compose up
+```
 
-
-### Command for stop and clean all docker compose dockers
-### `docker compose down`
+### Delete
+**Note:** Command for stop and clean all docker compose dockers
+```bash
+docker compose down
+```
