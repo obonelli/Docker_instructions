@@ -1,11 +1,11 @@
 <h1 align="center"><img src="./assets/stars.gif" width="30px"> Docker-instructions <img src="./assets/stars.gif" width="30px"></h1>
-<p align="center">Documentation based on: <a href="https://www.youtube.com/watch?v=4Dko5W96WHg">Docker Course</a></p>
+<p align="center">Documentation based on: <a href="https://www.youtube.com/watch?v=4Dko5W96WHg" target="_blank">Docker Course</a></p>
 
 ## ✨Table of content
 - [Images commands](#images-commands)
-    - [List](#typo3-extension-repository)
-    - [Download](#composer)
-    - [Delete](#composer)
+    - [List](#images-list)
+    - [Download](#images-download)
+    - [Delete](#images-delete)
 - [Dockers commands](#typo3-setup)
     - [List](#extension)
     - [Create](#database)
@@ -18,28 +18,35 @@
     - [Delete](#go-to-the-import-view)
 
 ## Images Commands
+Listed below are all commands related to **docker images**.
 
-This document is for the latest Aimeos TYPO3 **21.10 release and later**.
-
-- Stable release: 22.7 (TYPO3 10/11 LTS)
-- LTS release: 21.10 (TYPO3 10/11 LTS)
-
-// Command for check all docker images
+### List
+```bash
 docker images
+```
 
-// Command example of getting a node image with the tag: latest
+### Download
+**Note:** example of getting a node image with the tag: latest
+```bash
 docker pull node
+```
 
-// Check docker hub for more references
+[Check docker hub for more references](https://hub.docker.com/)
 
-// Command for get an especific node version
+**Note:** example for get an especific node version
+```bash
 docker pull node:18
+```
 
-// Command for get an especific platform version for node
+**Note:** for get an especific platform version for node
+```bash
 docker pull --platform linux/x86_64 node
-
-// Command for delete docker image -> [node:latest] are the current repository and tag name of the image
+```
+### Delete
+**Note:** [node:latest] are the current repository and tag name of the image
+```bash
 docker image rm node:latest
+```
 
 // Command for create mongo container for use this command first we need the image
 docker container create mongo
